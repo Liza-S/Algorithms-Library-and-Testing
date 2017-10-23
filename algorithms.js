@@ -1,11 +1,21 @@
-function LinearSearch(t,A)      // t - искомый элемент,
-{                               // A - массив, в котором ищем.
-    var n = A.length, i = 0;   
+/*	
+*	
+*	Linear search sequentially checks each element of the list until it finds an element that matches the target value.
+*
+*	@param value - Value of the element which index should be found.
+*	@param array - Input array
+*
+*	Time complexity: O(n)	
+*/
+
+function linearSearch(value, array)      
+{                               
+    var length = array.length, index = 0;   
     
-    A[n] = t;
+    array[length] = value;
     
-    while (A[ i ] !== t) i++;
+    while (array[ index ] !== value) index++;
                                 
-    if (i < n) return i;          // На выходе индекс искомого элемента.
-    else return -1;               // Если искомого элемента нет в массиве, то -1.
+    if (index < length) return index;          
+    else return "Not found.";               
 }
