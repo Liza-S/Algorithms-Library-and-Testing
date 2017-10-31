@@ -47,7 +47,8 @@ function recursiveLinearSearch(value,array)
 
 }
 
-/**
+/*
+*
 * 	Searches for specific element in a given array using the binary search algorithm.
 *
 * 	@param array Input array.
@@ -63,10 +64,36 @@ function binarySearch(value, array)
     while (index < length)                
     {  
     	middle = Math.floor((index+length)/2);
-       	if (value <= A[middle]) length = middle;
+       	if (value <= array[middle]) length = middle;
        	else index = middle+1;
     }
    
-    if (A[ index ] === value) return index;     
+    if (array[ index ] === value) return index;     
     else return 'Not found.';                 
+}
+
+/*
+*
+* 	Searches for specific element in a given array using the recursive binary search algorithm.
+*
+* 	@param array Input array.
+* 	@param value Value of the element which index should be found.
+* 	@returns Index of the element or 'Not found.' if not found.
+*	
+*	Time complexity: O(log N).
+*/
+
+function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
+	var midPoint = Math.floor(((stop-start)/2) + start);
+
+	switch (true) {
+		case array[midPoint] === value:
+			return midPoint;
+		case stop - start === 0:
+			return 'Not found.';
+		case array[midPoint] < value:
+			return recursiveBinarySearch(array, value, midPoint+1, stop);
+		case array[midPoint] > value:
+			return recursiveBinarySearch(array, value, start, midPoint);
+	}
 }
