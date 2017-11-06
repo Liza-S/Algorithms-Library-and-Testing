@@ -105,12 +105,12 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 
 /*
 *
-* Selection sort. Ascending.
+* 	Selection sort. Ascending.
 * 
-* @param {Array} array Input array.
-* @return {Array} Sorted array.
+* 	@param {Array} array Input array.
+* 	@return {Array} Sorted array.
 *
-* Time complexity: O(N^2).
+* 	Time complexity: O(N^2).
 *
 */
 
@@ -131,12 +131,12 @@ function selectionSort(array) {
 
 /*
 *
-* Insertion sort algorithm. Ascending.
+* 	Insertion sort algorithm. Ascending.
 * 
-* @param {Array} array Input array.
-* @return {Array} Sorted array.
+* 	@param {Array} array Input array.
+* 	@return {Array} Sorted array.
 *
-* Time complexity: O(N^2).
+* 	Time complexity: O(N^2).
 *
 */
 function insertionSort(array)      
@@ -150,4 +150,47 @@ function insertionSort(array)
        array[j+1] = current;
     }                    
     return array;
+}
+
+/*
+*
+* 	Mergesort method.
+*
+* 	@param {Array} array The array which should be sorted.
+*	@returns {Array} Sorted array.
+*
+*	Time complexity: O(log N).
+*
+*/
+function mergeSort(array)
+{
+    if (array.length < 2)
+        return array;
+ 
+    var middle = parseInt(array.length / 2);
+    var left   = array.slice(0, middle);
+    var right  = array.slice(middle, array.length);
+ 
+    return merge(mergeSort(left), mergeSort(right));
+}
+ 
+function merge(left, right)
+{
+    var result = [];
+ 
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+ 
+    while (left.length)
+        result.push(left.shift());
+ 
+    while (right.length)
+        result.push(right.shift());
+ 
+    return result;
 }
