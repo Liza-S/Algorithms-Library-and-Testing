@@ -105,24 +105,49 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 
 /*
 *
-* Selection sort.
+* Selection sort. Ascending.
 * 
 * @param {Array} array Input array.
 * @return {Array} Sorted array.
 *
+* Time complexity: O(N^2).
+*
 */
 
 function selectionSort(array) {                              
-    var n = array.length;
-    for (var i = 0; i < n-1; i++) { 
+    var length = array.length;
+    for (var i = 0; i < length-1; i++) { 
     	var min = i;
-       	for (var j = i+1; j < n; j++) { 
+       	for (var j = i+1; j < length; j++) { 
        		if (array[j] < array[min]) 
        			min = j; 
        	} 
        	var t = array[min]; 
        	array[min] = array[ i ]; 
        	array[ i ] = t;
+    }                    
+    return array;
+}
+
+/*
+*
+* Insertion sort algorithm. Ascending.
+* 
+* @param {Array} array Input array.
+* @return {Array} Sorted array.
+*
+* Time complexity: O(N^2).
+*
+*/
+function insertionSort(array)      
+{                               
+    var length = array.length;
+    for (var i = 0; i < length; i++) { 
+    	var current = array[ i ], j = i-1;
+       	while (j >= 0 && array[j] > current) { 
+       		array[j+1] = array[j]; j--; 
+       	}
+       array[j+1] = current;
     }                    
     return array;
 }
