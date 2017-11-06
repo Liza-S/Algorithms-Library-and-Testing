@@ -1,3 +1,5 @@
+/*SEARCHING*/
+
 /*	
 *	
 *	Linear search sequentially checks each element of the list until it finds an element that matches the target value.
@@ -97,3 +99,6 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 			return recursiveBinarySearch(array, value, start, midPoint);
 	}
 }
+
+
+/*SORTING*/
