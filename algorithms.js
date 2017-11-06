@@ -105,7 +105,7 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 
 /*
 *
-* 	Selection sort. Ascending.
+* 	Selection sort. Ascending. Only numbers.
 * 
 * 	@param {Array} array Input array.
 * 	@return {Array} Sorted array.
@@ -131,7 +131,7 @@ function selectionSort(array) {
 
 /*
 *
-* 	Insertion sort algorithm. Ascending.
+* 	Insertion sort algorithm. Ascending. Only numbers.
 * 
 * 	@param {Array} array Input array.
 * 	@return {Array} Sorted array.
@@ -154,7 +154,7 @@ function insertionSort(array)
 
 /*
 *
-* 	Mergesort method.
+* 	Mergesort method. Ascending. Only numbers.
 *
 * 	@param {Array} array The array which should be sorted.
 *	@returns {Array} Sorted array.
@@ -193,4 +193,27 @@ function merge(left, right)
         result.push(right.shift());
  
     return result;
+}
+
+function quick_Sort(origArray) {
+	if (origArray.length <= 1) { 
+		return origArray;
+	} else {
+
+		var left = [];
+		var right = [];
+		var newArray = [];
+		var pivot = origArray.pop();
+		var length = origArray.length;
+
+		for (var i = 0; i < length; i++) {
+			if (origArray[i] <= pivot) {
+				left.push(origArray[i]);
+			} else {
+				right.push(origArray[i]);
+			}
+		}
+
+		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
+	}
 }
