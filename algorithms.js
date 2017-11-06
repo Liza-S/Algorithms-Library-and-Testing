@@ -102,3 +102,27 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 
 
 /*SORTING*/
+
+/*
+*
+* Selection sort.
+* 
+* @param {Array} array Input array.
+* @return {Array} Sorted array.
+*
+*/
+
+function selectionSort(array) {                              
+    var n = array.length;
+    for (var i = 0; i < n-1; i++) { 
+    	var min = i;
+       	for (var j = i+1; j < n; j++) { 
+       		if (array[j] < array[min]) 
+       			min = j; 
+       	} 
+       	var t = array[min]; 
+       	array[min] = array[ i ]; 
+       	array[ i ] = t;
+    }                    
+    return array;
+}
