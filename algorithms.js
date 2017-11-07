@@ -195,22 +195,32 @@ function merge(left, right)
     return result;
 }
 
-function quick_Sort(origArray) {
-	if (origArray.length <= 1) { 
-		return origArray;
+/*
+*
+*   The quicksort algorithm. Only numbers.
+*
+*   @param {Array} array The array which should be sorted.
+*   @returns {Array} Sorted newArray.
+*
+*   Time complexity: O(log N).
+*
+*/
+function quickSort(array) {
+	if (array.length <= 1) { 
+		return array;
 	} else {
 
 		var left = [];
 		var right = [];
 		var newArray = [];
-		var pivot = origArray.pop();
-		var length = origArray.length;
+		var pivot = array.pop();
+		var length = array.length;
 
 		for (var i = 0; i < length; i++) {
-			if (origArray[i] <= pivot) {
-				left.push(origArray[i]);
+			if (array[i] <= pivot) {
+				left.push(array[i]);
 			} else {
-				right.push(origArray[i]);
+				right.push(array[i]);
 			}
 		}
 
