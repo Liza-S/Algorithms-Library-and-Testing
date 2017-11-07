@@ -105,7 +105,7 @@ function recursiveBinarySearch(array, value, start=0, stop=(array.length-1)) {
 
 /*
 *
-* 	Selection sort. Ascending. Only numbers.
+* 	Selection sort. Ascending. It's correct only for array of integers.
 * 
 * 	@param {Array} array Input array.
 * 	@return {Array} Sorted array.
@@ -131,7 +131,7 @@ function selectionSort(array) {
 
 /*
 *
-* 	Insertion sort algorithm. Ascending. Only numbers.
+* 	Insertion sort algorithm. Ascending. It's correct only for array of integers.
 * 
 * 	@param {Array} array Input array.
 * 	@return {Array} Sorted array.
@@ -154,7 +154,7 @@ function insertionSort(array)
 
 /*
 *
-* 	Mergesort method. Ascending. Only numbers.
+* 	Mergesort method. Ascending. It's correct only for array of integers.
 *
 * 	@param {Array} array The array which should be sorted.
 *	@returns {Array} Sorted array.
@@ -197,7 +197,7 @@ function merge(left, right)
 
 /*
 *
-*   The quicksort algorithm. Only numbers.
+*   The quicksort algorithm. It's correct only for array of integers.
 *
 *   @param {Array} array The array which should be sorted.
 *   @returns {Array} Sorted newArray.
@@ -226,4 +226,37 @@ function quickSort(array) {
 
 		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
 	}
+}
+
+/*
+*
+*   Sorts an array using counting sort.
+*
+*   @param {Array} array The array to sort.
+*   @param {number} maxValue The max value for the counting sort.
+*   @returns {Array} Sorted array.
+*
+*   Time complexity: O(N)
+*   
+*/
+function countingSort(array, maxValue) {
+    var buckets = new Array(maxValue + 1);
+    var sortedIndex = 0;
+    var i;
+
+    for (i = 0; i < array.length; i++) {
+        if (!buckets[array[i]]) {
+            buckets[array[i]] = 0;
+        }
+        buckets[array[i]]++;
+    }
+
+    for (i = 0; i < buckets.length; i++) {
+        while (buckets[i] > 0) {
+            array[sortedIndex++] = i;
+            buckets[i]--;
+        }
+    }
+
+    return array;
 }
