@@ -10,6 +10,9 @@ Download the repository and include a file:
 
 `<script src="algorithms.js" type="text/javascript"></script>`
 
+If you wish to use topological sorting then include a file:
+
+`<script src="topological_sort.js" type="text/javascript"></script>`
 
 ## Inspired by
 
